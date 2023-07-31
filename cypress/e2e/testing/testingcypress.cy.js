@@ -6,10 +6,8 @@ const randomNum = Math.round(Math.random()*100)
 describe('test', () => {
     
     it('registration form', () => {
-
         cy.visit('https://parabank.parasoft.com/parabank/index.htm')
         cy.get('p > a').contains('Register'). click()
-
         cy.get('[id="customer.firstName"]').clear().type(userdata.FirstName)
         cy.get('[id="customer.lastName"]').clear().type(userdata.LastName)
         cy.get('[id="customer.address.street"]').clear().type(userdata.Address)
@@ -20,31 +18,9 @@ describe('test', () => {
         cy.get('[id="customer.ssn"]').clear().type(userdata.SSN)
         cy.get('[id="customer.username"]').clear().type(userdata.Username + randomNum)
         cy.get('[id="customer.password"]').clear().type(userdata.Password)
-
         cy.get('[id = "repeatedPassword"]').clear().type(userdata.Confirm)
-
-
         cy.get('[value="Register"]').click()
-
         cy.wait(2000)
-
         cy.get('.title').should('be.visible').should('have.text', `Welcome ${userdata.Username+randomNum}`)
     });
-
-
 });
-
-
-// //First Name:	
-// Last Name:	
-// Address:	
-// City:	
-// State:	
-// Zip Code:	
-// Phone #:	
-// SSN:	
- 
-// Username:	
-// Password:	
-// Confirm:	
- 

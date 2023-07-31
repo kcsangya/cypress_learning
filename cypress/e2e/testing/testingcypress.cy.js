@@ -29,12 +29,6 @@ describe('test', () => {
         cy.wait(2000)
 
         cy.get('.title').should('be.visible').should('have.text', `Welcome ${userdata.Username+randomNum}`)
-
-
-        
-
-    
-        
     });
 
 

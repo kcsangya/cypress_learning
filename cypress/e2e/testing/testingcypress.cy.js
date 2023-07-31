@@ -6,6 +6,8 @@ const randomNum = Math.round(Math.random()*100)
 describe('test', () => {
     
     it('registration form', () => {
+
+
         cy.visit('https://parabank.parasoft.com/parabank/index.htm')
         cy.get('p > a').contains('Register'). click()
         cy.get('[id="customer.firstName"]').clear().type(userdata.FirstName)
@@ -22,5 +24,7 @@ describe('test', () => {
         cy.get('[value="Register"]').click()
         cy.wait(2000)
         cy.get('.title').should('be.visible').should('have.text', `Welcome ${userdata.Username+randomNum}`)
+
+
     });
 });
